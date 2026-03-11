@@ -1,6 +1,18 @@
 # Key-Catch - 키워드 기반 정보 구독 및 알림 서비스
 
-사용자가 설정한 키워드에 맞는 정보를 실시간으로 수집하여 알림을 제공하는 분산 모놀리식 시스템입니다.
+사용자가 설정한 키워드를 기반으로 외부 사이트의 정보를 주기적으로 수집하고,
+새로운 정보가 발견되면 이메일 알림을 제공하는 서비스입니다.
+
+본 시스템은 Spring Boot 기반 3-Tier Architecture로 설계되었으며,
+API 서버와 백그라운드 작업(Crawler, Notification Worker)을 분리하여
+사용자 요청 처리와 데이터 수집/알림 작업을 독립적으로 수행하도록 구성했습니다.
+
+- **Presentation Tier** : Frontend (Vercel)
+- **Application Tier** : Spring Boot API Server, Crawler, Notification Worker
+- **Data Tier** : MySQL
+
+이를 통해 사용자 요청 처리와 크롤링/알림 작업 간의 성능 영향을 최소화하고
+확장 가능한 구조를 목표로 설계했습니다.
 
 <br>
 
